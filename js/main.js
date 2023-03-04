@@ -4,32 +4,51 @@ let posts = [
 	{
 		title: 'Post1',
 		text: 'Lorem ipsum dolor sit',
+		img: 'img1.png',
+		publish: true,
 	},
 	{
 		title: 'Post2',
 		text: 'Lorem ipsum dolor sit',
+		img: 'img2.png',
+		publish: false,
 	},
 	{
 		title: 'Post3',
 		text: 'Lorem ipsum dolor sit',
+		img: 'img3.png',
+		publish: true,
 	},
-]
+];
 
 let parentPosts = doc.querySelector('.posts');
-let postHtml = '';
-let classAdd = '';
+let classMod = '';
+let count = 1;
 
 for (let i = 0; i < posts.length; i++) {
-	if ((i + 1) % 2 == 0) {
-		classAdd += 'post_silver';
+	if (posts[i].publish) {
+		if (count % 2 == 0) {
+			classMod = 'post__background';
+		} else {
+			classMod = '';
+		}
+		renderPost(parentPosts, posts[i], classMod);
+		count++;
 	}
+}
 
-	postHtml += `
-		<div class="post ${classAdd}">
-			<h3>${posts[i].title}</h3>
-			<p>${posts[i].text}</p>
+function renderPost(parent, object, classModif) {
+	let postHtml = `
+		<div class="post ${classModif}">
+			<div class="post__img">
+				<img src="./img/${object.img}" alt="picture">
+			</div>
+			<div class="post__content">
+				<h3>${object.title}</h3>
+				<p>${object.text}</p>
+			</div>
 		</div>
 	`;
-	
-	parentPosts.innerHTML += postHtml;
+
+	parent.innerHTML += postHtml;
 }
