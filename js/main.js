@@ -32,7 +32,9 @@ for (let i = 0; i < posts.length; i++) {
 		} else {
 			classMod = '';
 		}
+
 		renderPost(parentPosts, posts[i], classMod);
+		
 		count++;
 	}
 }
