@@ -11,12 +11,24 @@ let posts = [
 		title: 'Post2',
 		text: 'Lorem ipsum dolor sit',
 		img: 'img2.png',
-		publish: false,
+		publish: true,
 	},
 	{
 		title: 'Post3',
 		text: 'Lorem ipsum dolor sit',
 		img: 'img3.png',
+		publish: true,
+	},
+	{
+		title: 'Post4',
+		text: 'Lorem ipsum dolor sit',
+		img: 'img4.png',
+		publish: true,
+	},
+	{
+		title: 'Post5',
+		text: 'Lorem ipsum dolor sit',
+		img: 'img5.png',
 		publish: true,
 	},
 ];
@@ -28,20 +40,20 @@ let count = 1;
 for (let i = 0; i < posts.length; i++) {
 	if (posts[i].publish) {
 		if (count % 2 == 0) {
-			classMod = 'post__background';
+			classMod = ' post__background';
 		} else {
 			classMod = '';
 		}
 
 		renderPost(parentPosts, posts[i], classMod);
-		
+
 		count++;
 	}
 }
 
 function renderPost(parent, object, classModif) {
 	let postHtml = `
-		<div class="post ${classModif}">
+		<div class="post${classModif}">
 			<div class="post__img">
 				<img src="./img/${object.img}" alt="picture">
 			</div>
