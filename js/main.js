@@ -34,15 +34,15 @@ let posts = [
 ];
 
 let parentPosts = doc.querySelector('.posts');
-let classMod = '';
+
 let count = 1;
 
 for (let i = 0; i < posts.length; i++) {
+	let classMod = '';
+	
 	if (posts[i].publish) {
 		if (count % 2 == 0) {
 			classMod = ' post_background';
-		} else {
-			classMod = '';
 		}
 
 		renderPost(parentPosts, posts[i], classMod);
