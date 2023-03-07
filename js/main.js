@@ -40,7 +40,7 @@ let count = 1;
 for (let i = 0; i < posts.length; i++) {
 	if (posts[i].publish) {
 		if (count % 2 == 0) {
-			classMod = ' post__background';
+			classMod = ' post_background';
 		} else {
 			classMod = '';
 		}
